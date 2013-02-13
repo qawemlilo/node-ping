@@ -22,5 +22,9 @@
   },
   "bin": { "ping": "bin/ping" },
   "author": "Qawelesizwe Mlilo",
-  "license": "MIT"
+  "license": "MIT",
+  "engines":{
+      "node":"0.8.x",
+      "npm":"1.1.x"
+   }
 }
