@@ -1,7 +1,15 @@
 
 var Ping = require('./lib/ping'),
+    http = require('http'),
+    websites = [
+        'http://www.rflab.co.za', 
+        'http://www.bookmarkmanager.co.za', 
+        'http://crushit-compiler.herokuapp.com' 
+    ],
     pingServers,
-    monitors = [];
+    monitors = [],
+    port,
+    server;
 
 
 pingServers = function (arr) {
@@ -18,10 +26,14 @@ pingServers = function (arr) {
 }
 
     
-pingServers([
-    'http://www.rflab.co.za',
-    'http://www.bookmarkmanager.co.za',
-    'http://crushit-compiler.herokuapp.com',
-    'http://www.bookmarkmanager.co.za/qawe'
-])
+pingServers(websites);
+port = process.env.PORT || 3008;
+
+server = http.createServer(function (req, res) {
+    var data = websites.join("\n");
+    res.end("Monitoring the following websites: \n \n" + data);    
+});
+
+server.listen(port);
+console.log('Listening to port %s', port);
 
