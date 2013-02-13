@@ -1,20 +1,25 @@
 #!/usr/bin/env node
 
 var Ping = require('../lib/ping'),
-    rflab,
-    sanp;
-
-
+    commander = require('commander'),
+    monitor,
+    website = '';
     
-rflab = new Ping({
-    website: 'http://www.rflab.co.za',
-    timeout: 20,
-    refresh: 40
-});
+commander
+  .version('0.0.1')
+  .usage('[options] <url ...>')
+  .option('-t, --timer', 'Check if website is up every ? minutes. Default [0]')
+  .parse(process.argv);
+ 
+if (commander.args.length > 0) {
+    website = commander.args[0];
 
-
-sanp = new Ping({
-    website: 'http://www.sanatural.co.za/home',
-    timeout: 20,
-    refresh: 60
-});
+    monitor = new Ping({
+        website: website,
+        timeout: commander.timer || 15,
+        repeat: !!commander.timer
+    });    
+}
+else {
+    commander.help();
+}

@@ -123,7 +123,7 @@ Ping.prototype = {
                 console.log(error);
             }
             else {
-                console.log(res.message || 'Failed to send email');
+                console.log(res.message);
             }   
         })
     },
