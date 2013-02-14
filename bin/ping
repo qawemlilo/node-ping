@@ -7,8 +7,7 @@ var Ping = require('../lib/ping'),
     
 commander
   .version('0.0.1')
-  .usage('[options] <url ...>')
-  .option('-t, --timer', 'Check if website is up every ? minutes. Default [0]')
+  .usage(' <url ...>')
   .parse(process.argv);
  
 if (commander.args.length > 0) {
@@ -16,7 +15,7 @@ if (commander.args.length > 0) {
 
     monitor = new Ping({
         website: website,
-        timeout: commander.timer || 15,
+        timeout: 0,
         repeat: !!commander.timer
     });    
 }

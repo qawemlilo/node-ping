@@ -1,4 +1,7 @@
 
+/*
+    List of website to be monitored
+*/
 module.exports = [
     {
         url: 'http://www.rflab.co.za',

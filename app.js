@@ -12,30 +12,27 @@ App = {
     pingServers: function () {
         var self = this;
         
-        if (Array.isArray(websites) && websites.length > 0) {
-            websites.forEach(function (website) {
-                var monitor = new Ping ({
-                    website: website.url,
-                    timeout: website.timeout
-                });
-                
-                urls.push(website.url)
-                monitors.push(monitor);
+        // Iterate through websites and create a ping monitor for each website
+        websites.forEach(function (website) {
+            var monitor = new Ping ({
+                website: website.url,
+                timeout: website.timeout
             });
-            
-            self.createServer();
-        }
-        else {
-            self.createServer('Error - No websites are being monitored');
-        }  
+                
+            urls.push(website.url);
+            monitors.push(monitor);
+        });
+        
+        // Once the monitors have been set let's create a server        
+        self.createServer(); 
     },
     
     
     
     
-    createServer: function (output) {
+    createServer: function () {
         server = http.createServer(function (req, res) {
-            var data = output || ("Monitoring the following websites: \n \n" + urls.join("\n"));
+            var data = "Monitoring the following websites: \n \n" + urls.join("\n");
             
             res.end(data);
         });
