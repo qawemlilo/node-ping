@@ -4,7 +4,7 @@ var Ping = require('./lib/ping'),
     websites = require('./websites'),
     monitors = [],
     port = process.env.PORT || 3008,
-    server, App;
+    server, App, urls = [];
 
 
 
@@ -18,7 +18,8 @@ App = {
                     website: website.url,
                     timeout: website.timeout
                 });
-            
+                
+                urls.push(website.url)
                 monitors.push(monitor);
             });
             
@@ -34,7 +35,7 @@ App = {
     
     createServer: function (output) {
         server = http.createServer(function (req, res) {
-            var data = output || ("Monitoring the following websites: \n \n" + websites.join("\n"));
+            var data = output || ("Monitoring the following websites: \n \n" + urls.join("\n"));
             
             res.end(data);
         });
