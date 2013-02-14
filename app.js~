@@ -1,16 +1,10 @@
 
 var Ping = require('./lib/ping'),
     http = require('http'),
-    websites = [
-        'http://www.rflab.co.za', 
-        'http://www.bookmarkmanager.co.za', 
-        'http://crushit-compiler.herokuapp.com',
-        'http://node-ping.herokuapp.com'
-    ],
+    websites = require('./websites'),
     monitors = [],
     port = process.env.PORT || 3008,
-    server,
-    App;
+    server, App;
 
 
 
@@ -19,10 +13,10 @@ App = {
         var self = this;
         
         if (Array.isArray(websites) && websites.length > 0) {
-            websites.forEach(function (url) {
+            websites.forEach(function (website) {
                 var monitor = new Ping ({
-                    website: url,
-                    timeout: 15
+                    website: website.url,
+                    timeout: website.timeout
                 });
             
                 monitors.push(monitor);
