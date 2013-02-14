@@ -4,9 +4,9 @@ var Ping = require('./lib/ping'),
     websites = [
         'http://www.rflab.co.za', 
         'http://www.bookmarkmanager.co.za', 
-        'http://crushit-compiler.herokuapp.com' 
+        'http://crushit-compiler.herokuapp.com',
+        'http://node-ping.herokuapp.com'
     ],
-    pingServers,
     monitors = [],
     port = process.env.PORT || 3008,
     server,
