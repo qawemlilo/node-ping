@@ -23,7 +23,7 @@ module.exports = [
         timeout: 5
     },
     {
-        url: 'http://crushit-compiler.herokuapp.com/',
-        timeout: 5   
+        url: 'http://www.sanatural.co.za/home/',
+        timeout: 15   
     }
 ];
