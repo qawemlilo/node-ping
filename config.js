@@ -1,8 +1,8 @@
 /*
-   This application reqires that you create an app specific password on your gmail account.
-   Save you email address in GmailAuth.email and your app specific password in GmailAuth.password
+   This application requires that you create an app specific password on your Gmail account.
+   Save your email address in the GmailAuth.email property and your app specific password in the GmailAuth.password property.
    
-   The sendToAddress requires the email address to send all error messages to.
+   The sendToAddress property requires the email address to send all error messages to.
 */
 
 module.exports = {

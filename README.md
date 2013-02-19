@@ -2,7 +2,7 @@
 
 Node-ping is a simple app that monitors the availabilty of your websites.
 
-Please fill the config file with you details before using the app.
+Please fill in the config file with your details before using the app.
 
 
 
@@ -10,7 +10,7 @@ Please fill the config file with you details before using the app.
 
 (MIT License)
 
-Copyright (c) 2012 Qawelesizwe Mlilo <qawemlilo@gmail.com>
+Copyright (c) 2013 Qawelesizwe Mlilo <qawemlilo@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
