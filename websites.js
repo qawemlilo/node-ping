@@ -19,7 +19,7 @@ module.exports = [
  
     {
         url: 'http://node-ping.herokuapp.com',
-        timeout: 1
+        timeout: 5
     },
     {
         url: 'http://www.sanatural.co.za/home/',
