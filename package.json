@@ -1,11 +1,11 @@
 {
-   "name":"Ping",
+   "name":"node-ping",
    "version":"0.0.1",
    "description":"Node uptime monitor",
    "main":"app.js",
    "repository":{
       "type":"git",
-      "url":"https://github.com/qawemlilo/ping.git"
+      "url":"https://github.com/qawemlilo/node-ping.git"
    },
    "keywords":[
       "uptime",
