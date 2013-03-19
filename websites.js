@@ -3,8 +3,8 @@
 */
 module.exports = [
     {
-        url: 'http://www.rflabb.co.za',
-        timeout: 1
+        url: 'http://www.rflab.co.za',
+        timeout: 15
     },
  
     {
@@ -19,7 +19,7 @@ module.exports = [
  
     {
         url: 'http://node-ping.herokuapp.com',
-        timeout: 5
+        timeout: 15
     },
     {
         url: 'http://video-download.herokuapp.com',
