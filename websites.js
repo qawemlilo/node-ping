@@ -3,7 +3,7 @@
 */
 module.exports = [
     {
-        url: 'http://www.rflab.co.za',
+        url: 'http://www.rflabb.co.za',
         timeout: 1
     },
  
@@ -22,7 +22,7 @@ module.exports = [
         timeout: 5
     },
     {
-        url: 'http://www.sanatural.co.za/home/',
+        url: 'http://video-download.herokuapp.com',
         timeout: 15
     }
 ];
