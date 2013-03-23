@@ -1,8 +1,4 @@
-
-/*
-    List of website to be monitored
-*/
-module.exports = [
+[
     {
         url: 'http://www.rflab.co.za',
         timeout: 15
@@ -22,14 +18,8 @@ module.exports = [
         url: 'http://node-ping.herokuapp.com',
         timeout: 5
     },
-    
     {
-        url: 'http://video-download.herokuapp.com',
-        timeout: 15
-    },
-    
-    {
-        url: 'http://ragingflame.herokuapp.com',
-        timeout: 15
+        url: 'http://www.sanatural.co.za/home/',
+        timeout: 15   
     }
-];
+]
