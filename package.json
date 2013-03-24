@@ -1,6 +1,6 @@
 {
   "name": "Ping",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Monitor your website uptime",
   "main": "app.js",
   "private": "true",
@@ -16,16 +16,17 @@
     "website",
     "monitor"
   ],
-  "dependencies":{
-    "request": "~2.12.0",
-    "commander": "~1.1.1",
-    "nodemailer":"0.3.x"
+  "dependencies": {
+    "ping-monitor": "0.0.4",
+    "nodemailer": "~0.4.1"
   },
-  "bin": { "ping": "bin/ping" },
+  "bin": {
+    "ping": "bin/ping"
+  },
   "author": "Qawelesizwe Mlilo",
   "license": "MIT",
-  "engines":{
-      "node":"0.8.x",
-      "npm":"1.1.x"
-   }
+  "engines": {
+    "node": "0.8.x",
+    "npm": "1.1.x"
+  }
 }

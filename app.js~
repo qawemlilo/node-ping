@@ -29,7 +29,7 @@ App = {
                     subject: res.website + ' is down',
                     body: '<p>Time: ' + monitor.getFormatedDate(res.time) + '</p><p>Website: ' + res.website + ' </p><p>Messge: ' + res.statusMessage + ' </p>'
                 }, function (err, message) {
-                    if (err) {
+                    if (error) {
                         console.log('Error! email not sent.')
                     }
                     else {

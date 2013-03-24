@@ -1,5 +1,5 @@
 var nodemailer = require('nodemailer'), 
-    config = require('../config'), 
+    config = require('./config'), 
     mailer;
 
 
@@ -18,15 +18,15 @@ mailer = function (opts, fn) {
         });
     }
     catch (err) {
-        fn('Nodemailer could not create Transport', '');
+        fn(true, 'Nodemailer could not create Transport');
         return;
     }
     
     // mailing options    
     mailOpts = {
-        from: opts.from,
-        replyTo: opts.from,
-        to: opts.to,
+        from: config.email,
+        replyTo: config.email,
+        to: config.email,
         subject: opts.subject,
         html: opts.body
     };
