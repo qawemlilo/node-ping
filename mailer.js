@@ -1,9 +1,12 @@
+
 var nodemailer = require('nodemailer'), 
     config = require('./config'), 
     mailer;
 
 
 mailer = function (opts, fn) {
+
+    "use strict";
 
     var mailOpts, smtpTrans;
 
@@ -51,3 +54,4 @@ mailer = function (opts, fn) {
 };
 
 module.exports = mailer;
+

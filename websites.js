@@ -20,16 +20,21 @@ module.exports = [
     
     {
         url: 'http://node-ping.herokuapp.com',
-        timeout: 5
+        timeout: 15
     },
     
     {
         url: 'http://video-download.herokuapp.com',
-        timeout: 15
+        timeout: 25
     },
     
     {
         url: 'http://ragingflame.herokuapp.com',
-        timeout: 15
+        timeout: 20
+    },
+    
+    {
+        url: 'http://ragingflame-server.herokuapp.com',
+        timeout: 30
     }
 ];

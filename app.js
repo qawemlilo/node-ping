@@ -1,3 +1,6 @@
+(function () {
+
+"use strict";
 
 var Ping = require('ping-monitor'),
     http = require('http'),
@@ -71,6 +74,7 @@ App = {
     Start pinging
 */    
 App.pingServers();
+}());
 
 
 
