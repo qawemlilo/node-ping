@@ -31,10 +31,5 @@ module.exports = [
     {
         url: 'http://ragingflame.herokuapp.com',
         timeout: 20
-    },
-    
-    {
-        url: 'http://ragingflame-server.herokuapp.com',
-        timeout: 30
     }
 ];
