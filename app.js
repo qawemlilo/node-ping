@@ -38,10 +38,10 @@ server = http.createServer(function (req, res) {
     
     var logs = fs.readFileSync(logfile), // get the contents of the file
         header = "DOWN TIME LOGS: \n",
-        data;
+        body;
     
     // create an array of logs and format each log as well as the date
-    data = logs.toString().split("\n").map(function (log) { 
+    body = logs.toString().split("\n").map(function (log) { 
         log = log.split(','); // create an array of a log
       
         log[0] = getFormatedDate(parseInt(log[0])); // format the date
@@ -51,9 +51,10 @@ server = http.createServer(function (req, res) {
 
     header += "--------------------------------------------------------------------------------------- \n"; 
  
-    res.end(header + data);
+    res.end(header + body);
 });
  
  
 server.listen(port);
 console.log('Listening to port %s', port);
+
