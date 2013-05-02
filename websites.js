@@ -4,7 +4,7 @@
 module.exports = [
     {
         url: 'http://www.rflab.co.za',
-        timeout: 15
+        timeout: 1
     },
  
     {

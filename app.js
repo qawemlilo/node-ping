@@ -1,57 +1,84 @@
-var Ping = require('./lib/ping'),
+var Monitor = require('ping-monitor'),
     websites = require('./websites'),
     http = require('http'),
-    server,
     port = process.env.PORT || 3008,
-    urls = [],    
-    monitors = [],
-    fs = require('fs'),
-    logfile = './node-ping.log',
+    mailer = require('./mailer'),
+    config = require('./config'),
+    server, urls = [], monitors = [];
+
     
-getFormatedDate = function (time) {
-    var currentDate = new Date(time);
+
+
+var htmlMsg = function (obj) {
+    "use strict";
     
-    currentDate = currentDate.toISOString();
-    currentDate = currentDate.replace(/T/, ' ');
-    currentDate = currentDate.replace(/\..+/, '');
- 
-    return currentDate;
+    var html = '<p>Time: ' + obj.time;
+    html +='</p><p>Website: ' + obj.website;
+    html += '</p><p>Message: ' + obj.statusMessage + '</p>';
+    
+    return html;
 };
- 
- 
+
+
+
+    
 websites.forEach(function (website) {
-    var monitor = new Ping ({
+    "use strict";
+    
+    var monitor = new Monitor ({
         website: website.url,
         timeout: website.timeout
+    });  
+    
+    monitor.on('error', function (msg) {
+        console.log(msg);
+    });
+    
+    
+    monitor.on('stop', function (website) {
+        mailer({
+            from: config.GmailAuth.email,   // you may change this
+            to: config.sendToAddress,     // you may change this 
+            subject: website + ' monitor has stopped',
+            body: '<p>' + website + ' is no longer being minitored.</p>'
+        }, function (error, res) {
+            if (error) {
+                console.log('Failed to send email');
+            }
+            else {
+                console.log(res.message);    
+            }
+        });
+    });
+    
+    monitor.on('down', function (res) {
+        var msg = htmlMsg(res);
+        
+        mailer({
+            from: config.GmailAuth.email,   // you may change this
+            to: config.sendToAddress,     // you may change this 
+            subject: res.website + ' is down',
+            body: msg
+        }, function (error, res) {
+            if (error) {
+                console.log('Failed to send email');
+            }
+            else {
+                console.log(res.message);    
+            }
+        });
     });
     
     urls.push(website.url);
     monitors.push(monitor);
 });
- 
- 
-server = http.createServer(function (req, res) {
-    // Check if a log file exists
-    if (!fs.existsSync(logfile)) {
-        return res.end("No downtime errors have been logged :) \n");
-    }
-    
-    var logs = fs.readFileSync(logfile), // get the contents of the file
-        header = "DOWN TIME LOGS: \n",
-        body;
-    
-    // create an array of logs and format each log as well as the date
-    body = logs.toString().split("\n").map(function (log) { 
-        log = log.split(','); // create an array of a log
-      
-        log[0] = getFormatedDate(parseInt(log[0])); // format the date
-        
-        return log.join(" \t"); // return the log as a string
-    }).join("\n");
 
-    header += "--------------------------------------------------------------------------------------- \n"; 
- 
-    res.end(header + body);
+
+
+
+server = http.createServer(function (req, res) {
+    var body = urls.join('\n');
+    res.end(body);
 });
  
  
