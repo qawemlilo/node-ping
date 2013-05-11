@@ -5,12 +5,12 @@
 module.exports = [
     {
         url: 'http://crushit-compiler.herokuapp.com',
-        timeout: 15
+        timeout: 30
     },
     
     {
         url: 'http://node-ping.herokuapp.com',
-        timeout: 15
+        timeout: 30
     },
     
     {
@@ -21,5 +21,9 @@ module.exports = [
     {
         url: 'http://ragingflame.herokuapp.com',
         timeout: 20
+    },
+    {
+        url: 'http://ragingflameblog.herokuapp.com/',
+        timeout: 30
     }
 ];

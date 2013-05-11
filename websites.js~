@@ -4,11 +4,6 @@
 */
 module.exports = [
     {
-        url: 'http://www.bookmarkmanager.co.za',
-        timeout: 15
-    },
-    
-    {
         url: 'http://crushit-compiler.herokuapp.com',
         timeout: 15
     },
