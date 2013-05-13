@@ -1,0 +1,7 @@
+{
+  "GmailAuth": {
+    "email": "your-handle@gmail.com",
+      "password": "xxxxxxxxxxxx"
+  },
+  "sendToAddress": "email-address-to-send-downtime-messages-to"
+}

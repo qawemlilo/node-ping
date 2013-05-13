@@ -1,9 +1,25 @@
 # A Node uptime monitor
 
-Node-ping is a simple app that monitors the availabilty of your websites.
+Node-ping is a simple app that monitors the availabilty of your websites. 
 
-Please fill in the config file with your details before using the app.
+**Note:** Node-ping uses GMail to send down-time nofication emails, you are required to create an [application specific password](https://accounts.google.com/IssuedAuthSubTokens) on your Gmail account and update the `config.json` file.
 
+## How it works
+ 
+1. Download the repo:
+
+```
+git clone https://github.com/qawemlilo/node-monitor
+```
+
+2. Create [an application specific password](https://accounts.google.com/IssuedAuthSubTokens) from your Gmail account and update the `config.json` file.
+
+3. List all websites that you want to monitor in `websites.json` and run `node app` command to start monitoring your websites.
+
+
+## Dependencies
+ - [Node Mailer](https://github.com/andris9/Nodemailer) - for sending emails
+ - [Node Monitor](https://github.com/qawemlilo/node-monitor) - is an uptime event emitter that was abstracted from Node-ping.
 
 
 ## License
