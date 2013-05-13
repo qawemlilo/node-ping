@@ -6,11 +6,7 @@ Node-ping is a simple app that monitors the availabilty of your websites.
 
 ## How it works
  
-1. Download the repo:
-
-```
-git clone https://github.com/qawemlilo/node-monitor
-```
+1. Download the repo: `git clone https://github.com/qawemlilo/node-monitor`.
 
 2. Create [an application specific password](https://accounts.google.com/IssuedAuthSubTokens) from your Gmail account and update the `config.json` file.
 
