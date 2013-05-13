@@ -15,7 +15,7 @@ Node-ping is a simple app that monitors the availabilty of your websites.
 
 ## Dependencies
  - [Node Mailer](https://github.com/andris9/Nodemailer) - for sending emails
- - [Node Monitor](https://github.com/qawemlilo/node-monitor) - is an uptime event emitter that was abstracted from Node-ping.
+ - [Node Monitor](https://github.com/qawemlilo/node-monitor) - an uptime event emitter that was abstracted from Node-ping.
 
 
 ## License

@@ -1,3 +1,4 @@
+
 var Monitor = require('ping-monitor'),
     websites = require('./websites'),
     http = require('http'),
@@ -8,7 +9,9 @@ var Monitor = require('ping-monitor'),
 
 
 
-    
+/*
+   Loop over all websites and create a Monitor instance for each one.
+*/    
 websites.forEach(function (website) {
     "use strict";
     
@@ -27,7 +30,9 @@ websites.forEach(function (website) {
 
 
 
-
+/*
+   Server for responding to http requests
+*/
 http.createServer(function (req, res) {
     "use strict";
 

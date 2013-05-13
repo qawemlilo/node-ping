@@ -1,7 +1,19 @@
+
+/*
+   Module for sending emails
+*/
+
 var nodemailer = require('nodemailer'),
     config = require('./config'),
     mailer;
- 
+
+
+/*
+    Mailer function
+
+    @param - (Object) opts - mailing options  
+    @param - (Function) fn - callback function
+*/    
 mailer = function (opts, fn) {
  
     var mailOpts, smtpTrans;

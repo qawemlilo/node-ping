@@ -6,7 +6,12 @@
 var config = require('./config.json'),
     mailer = require('./mailer');
 
+    
+/*
+    Handles events emitted when a websites stop being monitored
 
+    @param - (String) website - website url    
+*/
 function onStop (website) {
     "use strict";
     
@@ -30,6 +35,11 @@ function onStop (website) {
 
 
 
+/*
+    Handles events emitted when a website is down 
+
+    @param - (Object) res - response object return by the Node Monitor object   
+*/
 function onDown (res) {
     "use strict";
     
@@ -59,6 +69,11 @@ function onDown (res) {
 
 
 
+/*
+    Handles events emitted when aa error occurs
+
+    @param - (String) msg - response message  
+*/
 function onError (msg) {
     "use strict"; 
     console.log(msg); 
