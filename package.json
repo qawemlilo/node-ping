@@ -1,6 +1,6 @@
 {
   "name": "Ping",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Monitor your website uptime",
   "main": "app.js",
   "private": "true",

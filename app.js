@@ -2,13 +2,16 @@
 
 "use strict";
 
-var Ping = require('ping-monitor'),
-    http = require('http'),
-    websites = require('./websites'),
-    mailer = require('./mailer'),
-    monitors = [],
-    port = process.env.PORT || 3008,
-    server, App, urls = [];
+var Ping = require('ping-monitor');
+var http = require('http');
+var websites = require('./websites');
+var mailer = require('./mailer');
+var router = require('./router');
+var monitors = [];
+var port = process.env.PORT || 3008;
+var server;
+var App;
+var urls = [];
 
 
 
@@ -57,11 +60,7 @@ App = {
     
     
     createServer: function () {
-        server = http.createServer(function (req, res) {
-            var data = "Monitoring the following websites: \n \n" + urls.join("\n");
-            
-            res.end(data);
-        });
+        server = http.createServer(router());
         
         server.listen(port);
         console.log('Listening to port %s', port);  
