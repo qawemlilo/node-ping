@@ -60,7 +60,7 @@ App = {
     
     
     createServer: function () {
-        server = http.createServer(router());
+        server = http.createServer(router(urls));
         
         server.listen(port);
         console.log('Listening to port %s', port);  
