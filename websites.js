@@ -4,7 +4,7 @@
 */
 module.exports = [
     {
-        url: 'http://crushit-compiler.herokuapp.com',
+        url: 'http://noble.herokuapp.com',
         timeout: 30
     },
     
@@ -14,16 +14,26 @@ module.exports = [
     },
     
     {
-        url: 'http://video-download.herokuapp.com',
+        url: 'http://nodetube.ragingflame.co.za',
         timeout: 25
     },
     
     {
-        url: 'http://ragingflame.herokuapp.com',
+        url: 'http://nodeza.co.za',
+        timeout: 25
+    },
+    
+    {
+        url: 'http://www.devinbox.io',
+        timeout: 25
+    },
+    
+    {
+        url: 'http://www.ragingflame.co.za',
         timeout: 20
     },
     {
-        url: 'http://ragingflameblog.herokuapp.com/',
+        url: 'http://blog.ragingflame.co.za',
         timeout: 30
     }
 ];
