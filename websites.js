@@ -34,5 +34,10 @@ module.exports = [
     {
         url: 'http://blog.ragingflame.co.za',
         timeout: 30
+    },
+    {
+        url: 'https://gatemaster.herokuapp.com',
+        timeout: 30
     }
+    
 ];
