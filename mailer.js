@@ -1,10 +1,7 @@
 
 
 var Mailgun = require('mailgun-js');
-var apiKey = 'key-5e9fqmyzepk16qxs2s9d5mhureq66xt3';
-var domain = 'nodeza.co.za';
-var deliveryInbox = 'qawemlilo@gmail.com';
-var from_who = 'PingMonitor <info@nodeza.co.za>';
+var config = require('./config');
 var subject = 'Website Down';
 var emailFooter = '<br><br><br><a href="http://node-ping.herokuapp.com">Ping Monitor</a>';
 
@@ -12,11 +9,14 @@ var emailFooter = '<br><br><br><a href="http://node-ping.herokuapp.com">Ping Mon
 
 module.exports.sendEmail = function(opts, fn) {
 
-  var mailgun = new Mailgun({apiKey: apiKey, domain: domain});
+  var mailgun = new Mailgun({
+    apiKey: config.mailgun.apiKey, 
+    domain: config.mailgun.domain
+  });
 
   var data = {
-    from: opts.from || from_who,
-    to: deliveryInbox,
+    from: config.mailgun.email,
+    to: config.deliveryEmail,
     subject: opts.subject || subject,
     html: opts.body + emailFooter
   };

@@ -1,6 +1,6 @@
 {
   "name": "Ping",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Monitor your website uptime",
   "main": "app.js",
   "private": "true",
@@ -26,7 +26,7 @@
   "author": "Qawelesizwe Mlilo",
   "license": "MIT",
   "engines": {
-    "node": "0.8.x",
-    "npm": "1.1.x"
+    "node": "0.12.x",
+    "npm": "2.11.x"
   }
 }
