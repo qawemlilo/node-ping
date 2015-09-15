@@ -1,57 +1,25 @@
 
-var nodemailer = require('nodemailer'), 
-    config = require('./config'), 
-    mailer;
+
+var Mailgun = require('mailgun-js');
+var apiKey = 'key-5e9fqmyzepk16qxs2s9d5mhureq66xt3';
+var domain = 'nodeza.co.za';
+var deliveryInbox = 'qawemlilo@gmail.com';
+var from_who = 'PingMonitor <info@nodeza.co.za>';
+var subject = 'Website Down';
+var emailFooter = '<br><br><br><a href="http://node-ping.herokuapp.com">Ping Monitor</a>';
 
 
-mailer = function (opts, fn) {
 
-    "use strict";
+module.exports.sendEmail = function(opts, fn) {
 
-    var mailOpts, smtpTrans;
+  var mailgun = new Mailgun({apiKey: apiKey, domain: domain});
 
-    // nodemailer configuration
-    try {
-        smtpTrans = nodemailer.createTransport('SMTP', {
-            service: 'Gmail',
-            auth: {
-                user: config.email,
-                pass: config.password
-            }
-        });
-    }
-    catch (err) {
-        fn(true, 'Nodemailer could not create Transport');
-        return;
-    }
-    
-    // mailing options    
-    mailOpts = {
-        from: config.email,
-        replyTo: config.email,
-        to: config.email,
-        subject: opts.subject,
-        html: opts.body
-    };
-    
-    
-    // Send maail
-    try {    
-        smtpTrans.sendMail(mailOpts, function (error, response) {
-            //if sending fails
-            if (error) {
-            fn(true, error);
-            }
-            //Yay!! message sent
-            else {
-                fn(false, response.message);
-            }
-        });
-    }
-    catch (err) {
-        fn('Nodemailer could not send Mail', '');   
-    }
+  var data = {
+    from: opts.from || from_who,
+    to: deliveryInbox,
+    subject: opts.subject || subject,
+    html: opts.body + emailFooter
+  };
+
+  mailgun.messages().send(data, fn);
 };
-
-module.exports = mailer;
-

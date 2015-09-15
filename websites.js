@@ -5,39 +5,34 @@
 module.exports = [
     {
         url: 'http://noble.herokuapp.com',
-        timeout: 30
+        timeout: 10
     },
     
     {
         url: 'http://node-ping.herokuapp.com',
-        timeout: 30
+        timeout: 10
     },
     {
         url: 'http://video-download.herokuapp.com/',
-        timeout: 25
+        timeout: 10
     },
     
     {
         url: 'http://nodeza.co.za',
-        timeout: 25
-    },
-    
-    {
-        url: 'http://www.devinbox.io',
-        timeout: 25
+        timeout: 10
     },
     
     {
         url: 'http://www.ragingflame.co.za',
-        timeout: 20
+        timeout: 10
     },
     {
         url: 'http://blog.ragingflame.co.za',
-        timeout: 30
+        timeout: 10
     },
     {
         url: 'https://gatemaster.herokuapp.com',
-        timeout: 30
+        timeout: 10
     }
     
 ];

@@ -1,4 +1,4 @@
-(function () {
+
 
 "use strict";
 
@@ -9,71 +9,55 @@ var mailer = require('./mailer');
 var router = require('./router');
 var monitors = [];
 var port = process.env.PORT || 3008;
-var server;
-var App;
 var urls = [];
 
 
 
-App = {
-    pingServers: function () {
-        var self = this;
-        
-        // Iterate through websites and create a ping monitor for each website
-        websites.forEach(function (website) {
-        
-            var monitor = new Ping ({
-                website: website.url,
-                timeout: website.timeout
-            }),
-            
-            emitHandler;
-            
+function pingServers() {
 
-            emitHandler = function(res) {
-                mailer({
-                    subject: res.website + ' is down',
-                    body: '<p>Time: ' + monitor.getFormatedDate(res.time) + '</p><p>Website: ' + res.website + ' </p><p>Messge: ' + res.statusMessage + ' </p>'
-                }, function (err, message) {
-                    if (err) {
-                        console.log('Error! email not sent.')
-                    }
-                    else {
-                        console.log(message);
-                    }
-                });                  
-            }; 
-                        
-            monitor.on('down', emitHandler);
-            monitor.on('error', emitHandler);
-            
+  // Iterate through websites and create a ping monitor for each website
+  websites.forEach(function (website) {
+    
+    var monitor = new Ping ({
+      website: website.url,
+      timeout: website.timeout
+    });
+    
+    
+    var emitHandler = function(res) {
+      mailer.sendEmail({
+        subject: res.website + ' is down',
+        body: '<p>Time: ' + monitor.getFormatedDate(res.time) + '</p><p>Website: ' + res.website + ' </p><p>Message: ' + res.statusMessage + ' </p>'
+      }, 
+      function (err, message) {
+        if (err) {
+          console.error(err.message);
+        }
+        else {
+          console.log(res.website + ' is down. Email sent!');
+        }
+      });                  
+    }; 
                 
-            urls.push(website.url);
-            monitors.push(monitor);
-        });
+    monitor.on('down', emitHandler);
+    monitor.on('error', emitHandler);
+    
         
-        // Once the monitors have been set let's create a server        
-        self.createServer(); 
-    },
+    urls.push(website.url);
+    monitors.push(monitor);
+  }); 
+}
+
     
-    
-    
-    
-    createServer: function () {
-        server = http.createServer(router(urls));
-        
-        server.listen(port);
-        console.log('Listening to port %s', port);  
-    }
-};
+// start monitoring servers   
+pingServers();
 
 
+// create web server
+var server = http.createServer(router(urls));
 
-/*
-    Start pinging
-*/    
-App.pingServers();
-}());
+server.listen(port);
+console.log('Listening to port %s', port); 
 
 
 
