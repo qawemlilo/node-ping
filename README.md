@@ -14,7 +14,7 @@ Node-ping is a simple app that monitors the availability of your websites.
 
 5. Run `node app` command to start monitoring your websites.
 
-**Note:** You may want to change `mailer.js` use a SMTP provider. Please checkout [Node Mailer](https://github.com/andris9/Nodemailer) for more details.
+**Note:** You may want to change `mailer.js` to use a SMTP provider. Please checkout [Node Mailer](https://github.com/andris9/Nodemailer) for more details.
 
 ## Dependencies
  - [nodemailer](https://github.com/andris9/Nodemailer) - for sending emails
