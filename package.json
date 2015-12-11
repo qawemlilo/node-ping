@@ -19,8 +19,8 @@
     "monitor"
   ],
   "dependencies": {
-    "ping-monitor": "~0.1.0",
-    "nodemailer": "0.3.x"
+    "nodemailer": "0.3.44",
+    "ping-monitor": "0.1.5"
   },
   "devDependencies": {
     "mocha": "~1.8.1",
@@ -29,7 +29,6 @@
   "author": "Qawelesizwe Mlilo",
   "license": "MIT",
   "engines": {
-    "node": "0.8.x",
-    "npm": "1.1.x"
+    "node":  ">=0.10.x"
   }
 }
