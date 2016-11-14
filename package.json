@@ -26,7 +26,7 @@
   "author": "Qawelesizwe Mlilo",
   "license": "MIT",
   "engines": {
-    "node": "0.12.x",
-    "npm": "2.11.x"
+    "node": ">= 4.5.0",
+    "npm": ">= 2.11.0"
   }
 }

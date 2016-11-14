@@ -1,4 +1,4 @@
-
+"use strict"
 /*
     Gmail credentials
 */
@@ -10,4 +10,3 @@ module.exports = {
   },
   deliveryEmail: 'qawemlilo@gmail.com'
 };
-

@@ -1,3 +1,4 @@
+"use strict";
 
 /*
     List of website to be monitored
@@ -23,11 +24,11 @@ module.exports = [
     },
 
     {
-        url: 'http://www.ragingflame.co.za',
+        url: 'https://www.ragingflame.co.za',
         timeout: 15
     },
     {
-        url: 'http://blog.ragingflame.co.za',
+        url: 'https://blog.ragingflame.co.za',
         timeout: 15
     },
     {

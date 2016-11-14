@@ -1,18 +1,17 @@
-
+"use strict";
 
 /*
    This file responds to different http requests
 */
 
 
-var url = require('url');
-var mailer = require('./mailer');
+const url = require('url');
+const mailer = require('./mailer');
 
 
 function nodeza (req, res) {
-  "use strict";
-
-  var data = '';
+  
+  let data = '';
 
   if (req.method === 'POST') {
     req.on('data', function(chunk) {
@@ -23,7 +22,7 @@ function nodeza (req, res) {
       mailer({
         subject: 'Messge from NodeZA',
         body: data
-      }, 
+      },
       function (err, message) {
         if (err) {
           console.log('Error! email not sent.');
@@ -45,9 +44,7 @@ function nodeza (req, res) {
 
 
 function index (req, res, urls) {
-  "use strict";
-
-  var data = "Monitoring the following websites: \n \n" + urls.join("\n");
+  let data = "Monitoring the following websites: \n \n" + urls.join("\n");
 
   res.end(data);
 }
@@ -58,20 +55,19 @@ function index (req, res, urls) {
    Expose our routes to the Global module object
 */
 module.exports = function (urls) {
-  "use strict";
-    
+
   return function (req, res) {
-    var path = url.parse(req.url).pathname, filename; 
-    
+    let path = url.parse(req.url).pathname, filename;
+
     switch (path) {
       case '/':
         index(req, res, urls);
       break;
-      
+
       case '/nodeza':
         nodeza(req, res);
-      break;                  
-      
+      break;
+
       default:
         res.writeHead(401);
         res.end();
