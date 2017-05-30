@@ -19,12 +19,12 @@
     "monitor"
   ],
   "dependencies": {
-    "nodemailer": "0.3.44",
-    "ping-monitor": "0.1.5"
+    "nodemailer": "4.0.1",
+    "ping-monitor": "0.1.6"
   },
   "devDependencies": {
-    "mocha": "~1.8.1",
-    "should": "~1.2.1"
+    "mocha": "~3.4.2",
+    "should": "~11.2.1"
   },
   "author": "Qawelesizwe Mlilo",
   "license": "MIT",
