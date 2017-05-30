@@ -1,5 +1,7 @@
 # A Node uptime monitor
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/qawemlilo/node-ping.svg)](https://greenkeeper.io/)
+
 Node-ping is a simple app that monitors the availability of your websites.
 
 ## How it works
