@@ -5,11 +5,6 @@
 */
 module.exports = [
     {
-        url: 'http://noble.herokuapp.com',
-        timeout: 15
-    },
-
-    {
         url: 'http://node-ping.herokuapp.com',
         timeout: 15
     },
@@ -17,14 +12,8 @@ module.exports = [
         url: 'http://video-download.herokuapp.com/',
         timeout: 15
     },
-
     {
         url: 'https://nodeza.co.za',
-        timeout: 15
-    },
-
-    {
-        url: 'https://www.ragingflame.co.za',
         timeout: 15
     },
     {
@@ -32,7 +21,11 @@ module.exports = [
         timeout: 15
     },
     {
-        url: 'https://gatemaster.herokuapp.com',
+        url: 'https://ragingflamesolutions.co.za',
+        timeout: 15
+    },
+    {
+        url: 'https://nodetube.ragingflame.co.za',
         timeout: 15
     }
 
