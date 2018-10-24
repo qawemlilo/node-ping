@@ -1,12 +1,14 @@
 "use strict"
-/*
-    Gmail credentials
-*/
+
+
+const envVars = require('./.env');
+
+
 module.exports = {
   mailgun: {
-    apiKey: 'key-5e9fqmyzepk16qxs2s9d5mhureq66xt3',
-    domain: 'nodeza.co.za',
-    email: 'PingMonitor <info@nodeza.co.za>'
+    apiKey: envVars.apiKey,
+    domain: envVars.domain,
+    email: envVars.email
   },
-  deliveryEmail: 'qawemlilo@gmail.com'
+  deliveryEmail: envVars.deliveryEmail
 };

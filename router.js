@@ -1,16 +1,12 @@
 "use strict";
 
-/*
-   This file responds to different http requests
-*/
-
 
 const url = require('url');
 const mailer = require('./mailer');
 
 
 function nodeza (req, res) {
-  
+
   let data = '';
 
   if (req.method === 'POST') {

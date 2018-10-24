@@ -1,5 +1,3 @@
-
-
 "use strict";
 
 const Ping = require('ping-monitor');
@@ -20,27 +18,50 @@ function pingServers() {
 
     let monitor = new Ping ({
       website: website.url,
-      timeout: website.timeout
+      interval: website.interval
     });
 
 
-    let emitHandler = function(res) {
-      mailer.sendEmail({
-        subject: res.website + ' is down',
-        body: '<p>Time: ' + monitor.getFormatedDate(res.time) + '</p><p>Website: ' + res.website + ' </p><p>Message: ' + res.statusMessage + ' </p>'
-      },
-      function (err, message) {
-        if (err) {
-          console.error(err.message);
-        }
-        else {
-          console.log(res.website + ' is down. Email sent!');
-        }
-      });
-    };
+    monitor.on('up', function (res) {
+        console.log('Yay!! ' + res.website + ' is up.');
+    });
 
-    monitor.on('down', emitHandler);
-    monitor.on('error', emitHandler);
+
+    monitor.on('down', function (res) {
+        mailer.sendEmail({
+          subject: res.website + ' is down',
+          body: '<p>Time: ' + monitor.getFormatedDate(res.time) + '</p><p>Website: ' + res.website + ' </p><p>Message: ' + res.statusMessage + ' </p>'
+        },
+        function (err, message) {
+          if (err) {
+            console.error(err.message);
+          }
+          else {
+            console.log(res.website + ' is down. Email sent!');
+          }
+        });
+    });
+
+
+    monitor.on('error', function (res) {
+        mailer.sendEmail({
+          subject: res.website + ' is down',
+          body: '<p>Time: ' + monitor.getFormatedDate(res.time) + '</p><p>Website: ' + res.website + ' </p><p>Message: ' + res.statusMessage + ' </p>'
+        },
+        function (err, message) {
+          if (err) {
+            console.error(err.message);
+          }
+          else {
+            console.log(res.website + ' is down. Email sent!');
+          }
+        });
+    });
+
+
+    monitor.on('stop', function (website) {
+        console.log(website + ' monitor has stopped.');
+    });
 
 
     urls.push(website.url);
