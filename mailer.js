@@ -1,10 +1,10 @@
 "use strict";
 
+
 const Mailgun = require('mailgun-js');
 const config = require('./config');
 const subject = 'Website Down';
 const emailFooter = '<br><br><br><a href="http://node-ping.herokuapp.com">Ping Monitor</a>';
-
 
 
 module.exports.sendEmail = function(opts, fn) {

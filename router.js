@@ -47,9 +47,6 @@ function index (req, res, urls) {
 
 
 
-/*
-   Expose our routes to the Global module object
-*/
 module.exports = function (urls) {
 
   return function (req, res) {

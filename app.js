@@ -10,7 +10,6 @@ const port = process.env.PORT || 3008;
 const urls = [];
 
 
-
 function pingServers() {
 
   // Iterate through websites and create a ping monitor for each website

@@ -2,8 +2,8 @@
 
 
 /*
- * List of website to be monitored
- * url -  website to be monitor
+ * List of websites to be monitored
+ * url -  website to be monitored
  * interval - polling interval in minutes
 **/
 module.exports = [
